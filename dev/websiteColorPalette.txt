@@ -1,0 +1,4 @@
+Cream White: #F8EDED
+Pumpkin Orange: #FF8225
+Granate Red: #B43F3F
+Dark Blue: #173B45

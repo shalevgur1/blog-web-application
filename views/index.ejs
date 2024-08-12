@@ -1,0 +1,63 @@
+<%- include("partials/header.ejs") %>
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Welcome to</h1>
+        <h2 class="fw-normal pumpkin-orange-txt">Orange Blog</h2>
+        <p class="lead text-body-secondary">Read and have fun with our amazing collection down below. You can also contribute to the site with your own blogs! Write your own blog by pressing the button below</p>
+        <p>
+          <a href="/write-post" class="btn btn-primary my-2 granate-red-btn">Write a Post!</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cream-white-background album py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+
+        <% if (locals.postsArr) { %>
+            <% for (let i = 0; i < postsArr.length; i++ ) { %>
+                <div class="col">
+                    <div class="card shadow-sm hover-overlay post-card" data-mdb-ripple-init data-mdb-ripple-color="light">
+                        <a href=<%=`/read-post?postId=${postsArr[i]["id"]}`%> class="post-card-link">
+                            <div class="mask"></div>
+                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title><%= postsArr[i]["title"] %></title>
+                                <rect x="0" y="0" width="100%" height="100%" fill="#55595c"></rect>
+                                <image href="https://bootdey.com/img/Content/bg1.jpg" class="post-card-img" x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"/>
+                            </svg>
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-text post-card-title fst-italic"><%= postsArr[i]["title"] %></h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href=<%=`/write-post?postId=${postsArr[i]["id"]}`%> class="card-btn-link">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary card-btn">Edit</button>
+                                    </a>
+                                    <a href=<%=`/delete-post?postId=${postsArr[i]["id"]}`%>>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary card-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                                        </svg>
+                                    </button>
+                                    </a>
+                                </div>
+                                <small class="text-body-secondary"><%= postsArr[i]["date"] %></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<%- include("partials/footer.ejs") %>

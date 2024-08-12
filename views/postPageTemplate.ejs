@@ -1,0 +1,65 @@
+<%- include("partials/header.ejs") %>
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="container px-5 mb-5">
+        <img src="https://bootdey.com/img/Content/bg1.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+    </div>
+    <div class="container pb50">
+        <div class="row">
+            <div class="mb40">
+                <% if(locals.reqPost) { %>
+                    <article>
+                        <div class="post-content">
+                            <h3><%= reqPost["title"] %></h3>
+                            <ul class="post-meta list-inline">
+                                <li class="list-inline-item">
+                                    <i class="fa fa-user-circle-o"><%= `${reqPost["fName"]} ${reqPost["lName"]}` %></i>
+                                </li>
+                                <li class="list-inline-item">
+                                    <i class="fa fa-calendar-o"><%= reqPost["date"] %></i>
+                                </li>
+                            </ul>
+                            <p><%= reqPost["postContent"] %></p>
+                            <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, </p>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, </p> -->
+                            <ul class="list-inline share-buttons">
+                                <li class="list-inline-item">
+                                    <a href="#" class="social-icon-sm si-dark si-colored-facebook si-gray-round">
+                                        <i class="fa fa-facebook"></i>
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="social-icon-sm si-dark si-colored-twitter si-gray-round">
+                                        <i class="fa fa-twitter"></i>
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="social-icon-sm si-dark si-colored-linkedin si-gray-round">
+                                        <i class="fa fa-linkedin"></i>
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <hr class="mb40">
+                            <h4 class="mb40 text-uppercase font500">The Author</h4>
+                            <div class="media mb40">
+                                <i class="d-flex mr-3 fa fa-user-circle fa-5x text-primary"></i>
+                                <div class="media-body">
+                                    <h5 class="mt-0 font700"><%= `${reqPost["fName"]} ${reqPost["lName"]}` %></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+        </div>
+    </div>
+  </section>
+
+</main>
+
+<%- include("partials/footer.ejs") %>

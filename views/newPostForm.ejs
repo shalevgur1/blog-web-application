@@ -1,0 +1,79 @@
+<%- include("partials/header.ejs") %>
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Write a Post</h1>
+        <h2 class="fw-normal pumpkin-orange-txt">Orange Blog</h2>
+        <p class="lead text-body-secondary">Fill in the information below to create your post. &#40;!&#41; We don't have database or any backup for your posts. If you'll refresh the page all the information will be lost. Have fun and good luck &#59;&#41;</p>
+        
+        <%
+        var id = "";
+        var fName = "";
+        var lName = "";
+        var email = "";
+        var title = "";
+        var postContent = "";
+        var date = "";
+        if (locals.postToEdit)
+        {
+          var id = postToEdit["id"];
+          var fName = postToEdit["fName"];
+          var lName = postToEdit["lName"];
+          var email = postToEdit["email"];
+          var title = postToEdit["title"];
+          var postContent = postToEdit["postContent"];
+          var date = postToEdit["date"];
+        } 
+        %>
+
+        <form action="/publish-post?postId=<%= id %>" method="POST">
+
+          <!-- 2 column grid layout with text inputs for the first and last names -->
+          <div class="row mb-4">
+            <div class="col">
+              <div data-mdb-input-init class="form-outline">
+                <input name="fName" type="text" id="form6Example1" class="form-control" placeholder="First name" value="<%= fName%>" />
+              </div>
+            </div>
+            <div class="col">
+              <div data-mdb-input-init class="form-outline">
+                <input name="lName" type="text" id="form6Example2" class="form-control" placeholder="Last name" value="<%= lName%>" />
+                <!-- <label class="form-label" for="form6Example2">Last name</label> -->
+              </div>
+            </div>
+          </div>
+        
+          <!-- Email input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input name="email" type="email" id="form6Example5" class="form-control" placeholder="Enter Email" value="<%= email%>" />
+            <!-- <label class="form-label" for="form6Example5">Email</label> -->
+          </div>
+
+          <!-- Title input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input name="title" type="text" id="form6Example5" class="form-control" placeholder="Enter title for your post" value="<%=title%>" />
+            <!-- <label class="form-label" for="form6Example5">Email</label> -->
+          </div>
+        
+          <!-- Message input -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <textarea name="postContent" class="form-control" id="form6Example7" rows="8"  placeholder="Write your post here!"><%= postContent %></textarea>
+            <!-- <label class="form-label" for="form6Example7">Text Box</label> -->
+          </div>
+          
+          <input name='date' type='hidden' value='<%= new Date().toISOString().split('T')[0].replace(/-/g, '/'); %>'>
+
+          <!-- Publish button -->
+          <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4 granate-red-btn">Publish Post</button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<%- include("partials/footer.ejs") %>

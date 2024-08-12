@@ -1,0 +1,73 @@
+.pumpkin-orange-txt{
+    color: #FF8225;
+}
+
+.cream-white-txt{
+    color: #F8EDED !important;
+}
+
+.cream-white-background{
+    background-color: #F8EDED !important;
+}
+
+.dark-blue-background{
+    background-color: #173B45 !important;
+}
+
+.granate-red-background{
+    background-color: #B43F3F !important;
+}
+
+.granate-red-btn{
+    color: #F8EDED !important;
+    border: none !important;
+    background-color: #B43F3F !important;
+}
+
+.header-btn{
+    border: none !important;
+}
+
+.post-card-title{
+    text-align: center;
+    line-height: 30px;
+    color: #173B45;
+}
+
+.post-card{
+    background-color: #FFFAEF;
+}
+
+.hover-overlay {
+    position: relative;
+    cursor: pointer; /* Ensures pointer cursor on hover */
+}
+
+.hover-overlay .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Adjust as necessary */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hover-overlay:hover .mask {
+    opacity: 1;
+}
+
+.post-card-link {
+    text-decoration: none;
+    display: block;
+    position: relative;
+    z-index: 0;
+}
+
+.card-btn {
+    z-index: 2;
+}
+
